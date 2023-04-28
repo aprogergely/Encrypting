@@ -19,15 +19,20 @@ eredeti=eredeti[1:]
 for l in eredeti:
     if l != 0:
         k = 0
+        success = False
         while k < len(kulcs):
             if (l == kulcs[k]):
                 if (k-offset<0):
                     dekodolt.write(kulcs[(k-offset+len(kulcs))])
-                    #dekodolt.write(" ")
+                    success = True
                 else:
                     dekodolt.write(kulcs[(k-offset)])
+                    success = True
                 k+=1
             else:
+                if k == (len(kulcs)-1):
+                    if success == False:
+                        dekodolt.write(l)
                 k+=1
 
 dekodolt.close()

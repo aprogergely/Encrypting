@@ -22,14 +22,20 @@ titkositott.write(kulcs[randomszam])
 
 for l in eredeti:
     k = 0
+    success = False
     while k < len(kulcs):
         if (l == kulcs[k]):
             if (randomszam+k) > len(kulcs):
                 titkositott.write(kulcs[(randomszam+k-len(kulcs))])
+                success = True
             else:
                 titkositott.write(kulcs[(randomszam+k)])
+                success = True
             k+=1
         else:
+            if k == (len(kulcs)-1):
+                if success == False:
+                    titkositott.write(l)
             k+=1
 
 titkositott.close()
