@@ -1,6 +1,6 @@
 import random
 
-class encoder:
+class decoder:
     def __init__(self, file):
     
         self.file=file
@@ -9,7 +9,7 @@ class encoder:
         f = open(file, "r")
         eredeti = f.read()
         f.close()
-        dekodolt=open("file.txt", "w")
+        dekodolt=open(file, "w")
         offset = 0
 
         k = 0
